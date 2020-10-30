@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+    version="1.2">
+    
+    <managed-bean>
+		<managed-bean-name>municipioMB</managed-bean-name>
+		<managed-bean-class>br.com.diogo.mb.MunicipioMB</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+
+	<managed-bean>
+		<managed-bean-name>pessoaMB</managed-bean-name>
+		<managed-bean-class>br.com.diogo.mb.PessoaMB</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	
+	<navigation-rule>
+		<display-name>pages/index</display-name>
+		<from-view-id>/pages/index.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>toListaMunicipio</from-outcome>
+			<to-view-id>/pages/municipio/lista.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>toListaPessoa</from-outcome>
+			<to-view-id>/pages/pessoa/lista.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>pages/municipio/lista</display-name>
+		<from-view-id>/pages/municipio/lista.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>toIndex</from-outcome>
+			<to-view-id>/pages/index.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>pages/pessoa/lista</display-name>
+		<from-view-id>/pages/pessoa/lista.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>toIndex</from-outcome>
+			<to-view-id>/pages/index.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>pages/login/login</display-name>
+		<from-view-id>/pages/login/login.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>toIndex</from-outcome>
+			<to-view-id>/pages/index.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>toCadastraPessoa</from-outcome>
+			<to-view-id>/pages/pessoa/cadastra.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<validator>
+		<validator-id>emailValidator</validator-id>
+		<validator-class>br.com.diogo.validador.EmailValidator</validator-class>
+	</validator>
+	
+</faces-config>
